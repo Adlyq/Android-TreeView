@@ -13,9 +13,11 @@ class SimpleTreeAdapter: TreeAdapter<String, SimpleTreeAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         (holder.itemView as TextView).apply{
             text = line(nodes[position].level) + nodes[position].src
-            Log.e("www1", "onBindViewHolder: ${nodes[position].level}", )
             textSize = 24f
-
+            setOnClickListener {
+                nodes[position].explained = !nodes[position].explained
+                flash()
+            }
         }
     }
 

@@ -91,6 +91,23 @@ abstract class TreeAdapter<T, H: TreeAdapter.ViewHolder>: RecyclerView.Adapter<H
         true
     } else false
 
+    fun explainAll(){
+        allNodes.forEach{
+            it.explained = true
+        }
+        revNodes.clear()
+        revNodes.addAll(allNodes)
+        notifyDataSetChanged()
+    }
+
+    fun collapse(){
+        allNodes.forEach{
+            it.explained = false
+        }
+        revNodes.clear()
+        revNodes.addAll(mRoot.children as List<Node<T>>)
+    }
+
     fun flash(){
         revNodes.apply {
             clear()

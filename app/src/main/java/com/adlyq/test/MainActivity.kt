@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
             addNode(n11, "n111")?:throw Exception()
 
+            removeNode(n03)
+
         }
 
         mAdapter.flash()
